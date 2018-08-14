@@ -7,7 +7,8 @@
           :key="index"
           :index="index"
           :class="{cur:index == num}"
-          @click="tabClick(index)" href="javascrip:;" class="tab">{{tab}}</a></p>
+          @click="tabClick(index)"
+          @mouseover="tabClick(index)" href="javascrip:;" class="tab">{{tab}}</a></p>
       <div class="ui-window">
         <ul class="lists">
           <li

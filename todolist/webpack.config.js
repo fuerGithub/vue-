@@ -1,0 +1,33 @@
+/**
+ * Created by Bai on 2018/8/10.
+ */
+module.exports={
+  //这是一个主文件包括其他模块
+  entry:"./src/main.js",//唯一入口文件
+  output:{//打包后的文件存放的地方，出口文件
+    path:"/dist",//webpack打包后的文件存放地方
+    filename:"build.js"//打包后输出文件的文件名
+  },
+  module:{
+    //一些特定的编译规则
+    rules:[
+      {
+        //让webpack去验证文件是否是.js结尾将其转换
+        test:/\.js$/,
+        loader:"babel",
+        exclude:"/node_modules/"
+      },
+      {
+        test:/\.vue$/,
+        loader:"vue-loader"//loader的名称（必须）
+      },
+      {
+        test:/\.(png|jpg|gif|svg)$/,
+        loader:"file-loader",
+        options:{
+          name:"[name].[ext]?[hash]"
+        }
+      }
+    ]
+  }
+}
